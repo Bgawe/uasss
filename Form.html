@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CssHome.css">
+    <script src="https://kit.fontawesome.com/d588d96d81.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div>
+        <div class="Nav" >
+            <nav>
+                <h1>SobatJogja.</h1>
+                <ul>
+                    <li><a href="home.html">Home page</a></li>
+                    <li><a href="Hotel.html">Hotel</a></li>
+                    <li><a href="Blog.html">Blog</a></li>
+                    <li><a href="Wisata.html">Wisata</a></li>
+                    <li><a href="Kuliner.html">Kuliner</a></li>
+                    <!-- <li><a style="margin-right: 40px; text-decoration: none; background-color: #006ce4; border-radius: 10px; padding: 10px 20px; color: white; " href="SignIn.html">Sign in</a></li> -->
+                </ul>        
+            </nav><hr>
+        </div>
+            <div class="contentform">
+                <div class="form">
+                    <h2> <i class="fa-solid fa-circle-info"></i> Masukan rincian Anda</h2>
+                    <p>Kami akan menggunakan informasi ini untuk berbagi informasi pemesanan Anda</p>
+                    
+                    <div class="formInput">
+                        <div class="formInput1">
+                            <label for="name">Nama</label><br>
+                            <input type="text" id="inputNama" placeholder="Masukkan nama" ><br>
+                            <label for="telephone">Telephone</label><br>
+                            <input type="no" id="inputTelp" placeholder="085223211333" >
+                        </div>
+                        <div class="formInput2">
+                            <label for="email">Surel</label><br>
+                            <input type="email" id="inputEmail" placeholder="CopyPaste@gmail.com"><br>
+                            <button id="tombol_form">Pesan Sekarang</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formOpsi">
+                    <div class="formOpsiHider">
+                        <div class="formOpsiText">
+                            <h3>Khas Hotel Tugu Jogja</h3>
+                            <h4>jetis,yogyakaarta</h4>
+                            <h3 class="rate">4.3 <i class="fa-solid fa-star" style="color: #ffffff;"></i></h3>
+                        </div>
+                        <div class="formImage">
+                            <img src="https://s-light.tiket.photos/t/01E25EBZS3W0FY9GTG6C42E1SE/t_htl-dskt/tix-hotel/images-web/2021/11/19/0646f829-a3d8-4464-a1aa-5d14c84f60c1-1637308860017-1de9bbcc0b5eef20f083809298329246.jpg" alt="">
+                        </div>
+                    </div>
+                    <div>
+                        <select class="selecMalam" name="kamarPerMalam" id="kamarPerMalam" onchange= "pilihan()">
+                            <option value="a">1 Malam</option>x
+                            <option value="b">2 Malam</option>
+                            <option value="c">3 Malam</option>
+                        </select>
+                    </div>
+                    <div class="FormTabel">
+                                <p ><i class="fa-solid fa-calendar-days" ></i><span id="waktu"> </span></p>                            
+                                <select class="selecTamu" name="package" id="package">
+                                    <option data-pengunjung="1 Guest" data-price="498000" data-discount="10">1 Kamar, 1 Tamu</option>
+                                    <option data-pengunjung="2 Guest" data-price="150000" data-discount="10">1 Kamar, 2 Tamu</option>
+                                    <option data-pengunjung="3 Guest" data-price="200000" data-discount="10">1 kamar, 3 Tamu</option>
+                                </select>
+                    </div>
+
+                    <div class="roomFit" >
+                        <i class="fa-solid fa-door-open"></i>
+                        <h5>SPOT ON Doble</h5>
+                    </div>
+
+
+                    <div class="harga">
+                            <label class="label1" for="price">Room price for <span id="Pengunjung"></span></label><br>
+                            <input type="text" name="price" value="IDR" readonly><br>
+                            <label for="discount"> 10% coupon discount</label><br>
+                            <input type="text" name="discount" value="IDR" readonly><br><hr>
+                    </div>
+
+                    <div class="total">
+                        <div>
+                            <h5>Jumlah yang dapat dibayarkan</h5>
+                            <p>termasuk pajak</p>
+                        </div>
+                        <h3 id="total">IDR</h3>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="containerInvoice"> 
+                <h1 class="h1">INVOICE</h1>
+                <div class="inpoUser">
+                    <div class="inpoUser1">
+                        <p>NAME</p>
+                        <p>NO.TELP</p>
+                        <p>EMAIL</p>
+                    </div>
+                    <div class="inpoUser2">
+                        <p><span id="outputNama">:</span></p>
+                        <p><span id="outputTelp">:</span></p>
+                        <p><span id="outputEmail">:</span></p>
+                    </div>
+                </div>
+                <div class="tabelInvoice">
+        
+                    <table>
+                        <tr>
+                            <th>Room ID</th>
+                            <th>Pengunjung</th>
+                            <th>Chek In</th>
+                            <th>Chek Out</th>
+                            <th>Harga</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td><span>1</span></td>
+                            <td><span>#</span></td>
+                            <td><span>#</span></td>
+                            <td><span>#</span></td>
+                        </tr>
+                        
+                    </table>
+        
+                    <div class="invoiceTotal">
+                        <div class="invoiceTotal1">
+                            <p>sub Total : </p>
+                            <p>discount : </p>
+                            <p>Total :</p>
+                        </div>
+                        <div class="invoiceTotal2">
+                            <p><span>0</span></p>
+                            <p><span>0</span></p>
+                            <p><span>0</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="height: 500px; width: 10px;"></div>
+
+    </div>
+  
+    <script src="Form.js" ></script>
+</body>
+</html>
